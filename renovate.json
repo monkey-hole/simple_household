@@ -1,11 +1,29 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "enabledManagers": ["pub"],
+  "prConcurrentLimit": 4,
+  "timezone": "Asia/Tokyo",
+  "schedule": [
+    "after 10pm",
+    "before 5am"
+  ],
+  "assignees": [
+    "@Allianaab2m",
+    "@sarushili0430"
+  ],
+  "configMigration": true,
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "prHourlyLimit": 0,
+  "enabledManagers": [
+    "pub"
+  ],
   "packageRules": [
     {
-      "matchManagers": ["pub"],
+      "matchManagers": [
+        "pub"
+      ],
       "automerge": true
     }
-  ],
-  "prConcurrentLimit": 4
+  ]
 }
