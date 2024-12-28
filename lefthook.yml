@@ -1,0 +1,16 @@
+pre-commit:
+  parallel: true
+  commands:
+    analyze:
+      run: flutter analyze
+    lint_code:
+      glob: '*.dart'
+      run: dart fix --dry-run lib
+    format_code:
+      glob: '*.dart'
+      run: dart format {staged_files}
+
+commit-msg:
+  commands:
+    validate:
+      run: dart run scripts/check_commit_message.dart
