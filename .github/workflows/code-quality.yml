@@ -21,7 +21,7 @@ jobs:
         run: flutter analyze --write=flutter_analyze.log
       - name: Riverpod lint
         run: dart run custom_lint --format=json > custom_lint.log
-      - if: ${{ !canceled() }}
+      - if: ${{ !cancelled() }}
         uses: yorifuji/flutter-analyze-commenter@v1
         with:
           analyze-log: flutter_analyze.log
