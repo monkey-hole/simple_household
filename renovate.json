@@ -15,6 +15,7 @@
     "enabled": true
   },
   "prHourlyLimit": 0,
+  "dependencyDashboard": true,
   "enabledManagers": [
     "pub"
   ],
@@ -25,5 +26,6 @@
       ],
       "automerge": true
     }
-  ]
+  ],
+  "rangeStrategy": "pin"
 }
