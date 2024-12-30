@@ -19,3 +19,5 @@ jobs:
         run: flutter pub get
       - name: Analyze
         run: flutter analyze
+      - name: Riverpod lint
+        run: dart run custom_lint
