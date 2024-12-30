@@ -18,23 +18,11 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: Analyze
-        shell: bash
-        run: flutter analyze | tee ./flutter_analyze_report.txt
+        run: flutter analyze --write=flutter_analyze.log
       - name: Riverpod lint
-        shell: bash
-        run: dart run custom_lint | tee ./flutter_analyze_report.txt
-      - name: Setup ruby
-        uses: ruby/setup-ruby@v1
-        if: always()
+        run: dart run custom_lint --format=json > custom_lint.log
+      - if: ${{ !canceled() }}
+        uses: yorifuji/flutter-analyze-commenter@v1
         with:
-          ruby-version: '3.3'
-          bundler-cache: true
-      - name: Setup danger
-        uses: MeilCli/danger-action@v5
-        if: always()
-        with:
-          plugins_file: '.github/Gemfile'
-          danger_file: '.github/Dangerfile'
-          danger_id: 'danger-pr'
-        env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          analyze-log: flutter_analyze.log
+          custom-lint-log: custom-lint.log
