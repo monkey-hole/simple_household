@@ -4,5 +4,20 @@ import 'views/views.dart';
 
 final goRouter = GoRouter(
   initialLocation: '/',
-  routes: [],
+  routes: [
+    GoRoute(
+      path: '/',
+      name: 'home',
+      pageBuilder: (context, state) => const MaterialPage(
+        child: MainScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/add-expense',
+      name: 'add-expense',
+      pageBuilder: (context, state) => const MaterialPage(
+        child: AddExpenseScreen(),
+      ),
+    ),
+  ],
 );
