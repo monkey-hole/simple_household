@@ -31,17 +31,14 @@ class ExpenseScreenBody extends HookWidget {
 
     void updateMoneyText(String text) {
       moneyText.value = int.tryParse(text) ?? 0;
-      print(moneyText.value);
     }
 
     void updateDescriptionText(String text) {
       descriptionText.value = text;
-      print(descriptionText.value);
     }
 
     void updateDate(DateTime date) {
       pickedDate.value = date;
-      print(pickedDate.value);
     }
 
     return Padding(
@@ -168,7 +165,6 @@ class DatePicker extends HookWidget {
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.grey,
-              width: 1,
             ),
             borderRadius: BorderRadius.circular(8),
           ),
@@ -205,7 +201,7 @@ class SubmitButtton extends StatelessWidget {
       width: double.infinity,
       height: 36,
       child: ElevatedButton(
-        //TODO: Implement onPressed
+        // TODO(Sarushili): Implement onPressed.
         onPressed: () {},
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
